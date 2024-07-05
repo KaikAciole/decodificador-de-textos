@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    <title>Decodificador/Codificador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href=""><img src="./img/Icone-alura.svg" alt=""></a>
+        <div class="menu-header">
+            <ul class="lista-menu">
+                <li><a><img src="./img/icon1-menu1.svg" alt=""></a></li>
+                <li><a><img src="./img/icon2-menu1.svg" alt=""></a></li>
+            </ul>
+        </div>
+        <div class="menu-header">
+            <ul class="lista-menu">
+                <li><a href=""><img src="./img/icon1-menu2.svg" alt=""></a></li>
+                <li><a href=""><img src="./img/icon2-menu2.svg" alt=""></a></li>
+            </ul>
+        </div>            
+    </header>
+    <main>   
+        <textarea id="entrada-texto" placeholder="Digite Seu Texto" rows="15" required ></textarea>     
+        <div id="enviar">  
+            <div class="alert">
+                <img src="./img/bi_exclamation-circle-fill.svg" alt=""> &ensp;
+                <p>Apenas letras minúsculas e sem acento.</p>
+            </div>          
+            <div class="buttons"> 
+                <button class="buttons__button" id="button__criptografar" onclick="initCodificar()">Criptografar</button>
+                <button class="buttons__button" id="button__descriptografar" onclick="decodificar()">Descriptografar</button>
+            </div>  
+        </div>   
+           
+    </main>
+    <footer>        
+        <div class="resultados">
+            <textarea id="saida-texto"></textarea>
+            <img src="./img/High quality products 1 1.svg" alt="" class="sumir" id="img1">
+            <h2 class="sumir" id="text1">Nenhuma Mensagem Encontrada</h2>
+            <p class="sumir" id="text2">Digite um texto que você deseja criptografar ou descriptografar</p>
+        </div>
+        
+    </footer>
+</body>
+</html>
