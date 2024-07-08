@@ -27,39 +27,39 @@ function initCodificar(){
 function codificar() {
     var textoOriginal = document.getElementById('entrada-texto').value.toLowerCase();
     var textoCodificado = "";
-    var regexEspecial = /[^\w\s]/g; // Expressão regular para caracteres especiais
+    var regexEspecial = /[^\u0000-\u007F]+/g; // Expressão regular para caracteres especiais (incluindo acentos)
 
     for (var i = 0; i < textoOriginal.length; i++) {
         var letra = textoOriginal[i];
     
         if (regexEspecial.test(letra)) {
             continue; // Ignora caracteres especiais
-        }
-    
-        switch (letra) {
-            case 'e':
-                textoCodificado += "enter";
-                break;
-            case 'i':
-                textoCodificado += "imes";
-                break;
-            case 'a':
-                textoCodificado += "ai";
-                break;
-            case 'o':
-                textoCodificado += "ober";
-                break;
-            case 'u':
-                textoCodificado += "ufat";
-                break;
-            default:
-                textoCodificado += letra;
+        } else {
+            switch (letra) {
+                case 'e':
+                    textoCodificado += "enter";
+                    break;
+                case 'i':
+                    textoCodificado += "imes";
+                    break;
+                case 'a':
+                    textoCodificado += "ai";
+                    break;
+                case 'o':
+                    textoCodificado += "ober";
+                    break;
+                case 'u':
+                    textoCodificado += "ufat";
+                    break;
+                default:
+                    textoCodificado += letra;
+            }
         }
     }
     
     document.getElementById('saida-texto').value = textoCodificado;
-    
 }
+
 
 function decodificar() {
     var textoCodificado = document.getElementById('saida-texto').value.toLowerCase();
