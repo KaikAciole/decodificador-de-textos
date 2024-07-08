@@ -33,6 +33,7 @@ function codificar() {
         var letra = textoOriginal[i];
     
         if (regexEspecial.test(letra)) {
+            alert("Você usou letras maiúsculas ou acentos!\nVamos ignorar esses caracteres.");
             continue; // Ignora caracteres especiais
         } else {
             switch (letra) {
