@@ -84,12 +84,16 @@ header img{
     border-radius: 100%;
 }
 
-main{
+#container{
+    display: flex;
+}
+
+#main{
     height: 944px;
     margin: 130px 80px 0 80px;
 }
 
-main textarea{
+#main textarea{
     margin-top: 168;
     width: 680px;
     height: 500px;
@@ -107,7 +111,7 @@ textarea:focus {
     outline: 0;
 } 
 
-main ::placeholder{
+#main ::placeholder{
     color: var(--dark-blue-300);
 }
 
@@ -137,6 +141,10 @@ main ::placeholder{
     border-radius: 24px;
     text-align: center;
     text-decoration: none;
+}
+
+.buttons__button:hover{
+    cursor: pointer;
 }
 
 #button__criptografar{

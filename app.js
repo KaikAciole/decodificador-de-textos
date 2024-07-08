@@ -88,3 +88,10 @@ function decodificar() {
 
     document.getElementById('saida-texto').value = textoOriginal;
 }
+
+function abrirMenu(){
+    var x = document.getElementsByClassName('menu-header');
+    for(var i = 0; i < x.length; i++){
+        x[i].style.display = "flex";
+    }
+}    
