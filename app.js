@@ -1,8 +1,3 @@
-var textoEntrada = document.getElementById('entrada-texto').value;
-var textoSaida = document.getElementById('saida-texto');
-var botaoCodificar = document.getElementById('button__criptografar');
-var botaodecodificar = document.getElementById('button__descriptografar');
-
 var temp = 0;
 
 function initCodificar(){
@@ -12,14 +7,20 @@ function initCodificar(){
         var sumir2 = document.getElementById('text1');
         var sumir3 = document.getElementById('text2');
         var show = document.getElementById('saida-texto');
-    
+        var buttonDec = document.getElementById('button__descriptografar');
+        var buttonTemp = document.getElementById('button__temp');
+        
         sumir1.style.display = "none";
         sumir2.style.display = "none";
         sumir3.style.display = "none";
         show.style.display = "flex";
+        buttonTemp.style.display = "none"
+        buttonDec.style.display = 'block';
+        
         codificar();
-    }else{
+    }else{        
         codificar();
+        temp = 1;
     }
 }
 

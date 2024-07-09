@@ -156,6 +156,18 @@ textarea:focus {
     background-color: transparent;
     color: var(--dark-blue-300);
     border: var(--dark-blue-300) solid 1px;
+    display: none;
+    text-align: center;
+}
+
+#button__temp{
+    background-color: #D8DFE8;
+    border: var(--dark-blue-300) solid 1px;
+    color: var(--dark-blue-300);
+}
+
+#button__temp:hover{
+    cursor: default;
 }
 
 .resultados{
