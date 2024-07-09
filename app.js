@@ -1,4 +1,5 @@
 var temp = 0;
+let temp2 = 0;
 
 function initCodificar(){
     if(temp == 0){
@@ -91,9 +92,24 @@ function decodificar() {
     document.getElementById('saida-texto').value = textoOriginal;
 }
 
+
 function abrirMenu(){
     var x = document.getElementsByClassName('menu-header');
-    for(var i = 0; i < x.length; i++){
-        x[i].style.display = "flex";
+
+    if (temp2 == 0){
+        for(var i = 0; i < x.length; i++){
+            x[i].style.display = "flex";
+        }
+        temp2 += 1;
+    }else{
+        for(var i = 0; i < x.length; i++){
+            x[i].style.display = "none";
+        }
+
+        temp2 -= 1;
     }
+    
+    
+
+    
 }    
