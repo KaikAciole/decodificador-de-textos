@@ -65,6 +65,7 @@ header img:hover{
     background-color: #ffffff;
 }
 
+
 .lista-menu{
     padding: 16px;
     background-color: #ffffff;
@@ -181,7 +182,7 @@ textarea:focus {
     height: 944px;
     gap: 16px;
     align-items: center;
-    justify-content: center;
+    justify-content:space-evenly;
     flex-direction: column;
     border-radius: 32px;
 }
@@ -204,7 +205,7 @@ textarea:focus {
 .resultados textarea{
     display: none;
     width: 80%;
-    height: 91%;
+    height: 76%;
     outline: none;
     border: 0 none;
     font-family: 'Inter', 'sans-serif';
@@ -213,6 +214,13 @@ textarea:focus {
     color: var(--gray-400);
     resize: none;
     background-color: transparent;
+}
+
+.resultados button{
+    display: none;
+    background-color: transparent;
+    color: var(--dark-blue-300);
+    border: var(--dark-blue-300) solid 1px;
 }
 
 @media(max-width:1366px){

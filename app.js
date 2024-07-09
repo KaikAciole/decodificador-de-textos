@@ -10,11 +10,13 @@ function initCodificar(){
         var show = document.getElementById('saida-texto');
         var buttonDec = document.getElementById('button__descriptografar');
         var buttonTemp = document.getElementById('button__temp');
-        
+        var buttonCop = document.getElementById('button__copiar');
+
         sumir1.style.display = "none";
         sumir2.style.display = "none";
         sumir3.style.display = "none";
         show.style.display = "flex";
+        buttonCop.style.display = "block"
         buttonTemp.style.display = "none"
         buttonDec.style.display = 'block';
         
@@ -108,8 +110,10 @@ function abrirMenu(){
 
         temp2 -= 1;
     }
-    
-    
-
-    
 }    
+
+function copiarTexto() {
+    let textoSaida = document.getElementById('saida-texto').value;
+    navigator.clipboard.writeText(textoSaida);
+    
+}
