@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
     <link rel="stylesheet" href="styles.css">
     <title>Decodificador/Codificador</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,26 +15,21 @@
     <header>
         <img src="./img/Icone-alura.svg" alt="" onclick="abrirMenu()">
         <div class="menu-header" id="menu-header">
-            <ul class="lista-menu">
-                <li><a><img src="./img/icon-text-blue.svg" alt="" onclick=""></a></li>
-                <li><a><img src="./img/icon-speak-white.svg" alt=""></a></li>
-            </ul>
-        </div>
-        <div class="menu-header">
-            <ul class="lista-menu">
-                <li><a href=""><img src="./img/icon1-menu2.svg" alt=""></a></li>
-                <li><a href=""><img src="./img/icon2-menu2.svg" alt=""></a></li>
-            </ul>
-        </div>            
+            <form id="lista-menu">                
+                <label><input type="radio" value="write" name="gostou" id="write" checked onclick="selecionarWrite()"> <img src="./img/icon-text-blue.svg" id="blue" alt=""><img src="./img/icon-text-white.svg" id="white" alt=""></label>
+                <label><input type="radio" value="speak" name="gostou" id="speak" onclick="selecionarSpeak()"> <img src="./img/icon-speak-white.svg" id="white2" alt=""><img src="./img/icon-speak-blue.svg" id="blue2" alt=""></label>               
+            </form>                
+        </div>          
     </header>
-    <main> 
-        <div id="container">
+    <main>
+        <section id="container"> 
             <div id="main">  
-                <textarea id="entrada-texto" placeholder="Digite Seu Texto" rows="15" required></textarea>     
+                <textarea id="entrada-texto" placeholder="Digite Seu Texto" rows="4" cols="41" required></textarea>     
                 <div id="enviar">  
                     <div class="alert">
-                        <img src="./img/bi_exclamation-circle-fill.svg" alt=""> &ensp;
-                        <p>Apenas letras minúsculas e sem acento.</p>
+                        <img src="./img/bi_exclamation-circle-fill.svg" alt="" id="exclamation">    
+                        <img src="./img/red_exclamation.svg" alt="" id="red-exclamation"> &ensp;
+                        <p id="alerta">Apenas letras minúsculas e sem acento.</p>
                     </div>          
                     <div class="buttons"> 
                         <button class="buttons__button" id="button__criptografar" onclick="initCodificar()">Criptografar</button>
@@ -41,17 +37,16 @@
                         <button class="buttons__button" id="button__temp">Descriptografar</button>
                     </div>  
                 </div>
-            </div> 
-            <div class="resultados">
-                
-                <textarea id="saida-texto" disabled></textarea>
-                <button class="buttons__button" id="button__copiar" onclick="copiarTexto()">Copiar</button>
-                <img src="./img/High quality products 1 1.svg" alt="" class="sumir" id="img1">
-                <h2 class="sumir" id="text1">Nenhuma Mensagem Encontrada</h2>
-                <p class="sumir" id="text2">Digite um texto que você deseja criptografar ou descriptografar</p>
-            </div>
-        </div>                        
-    </main>
+            </div>     
+        </section>
+        <section class="resultados">                      
+            <textarea id="saida-texto" cols="20" rows="10" disabled></textarea>
+            <button class="buttons__button" id="button__copiar" onclick="copiarTexto()">Copiar</button>
+            <img src="./img/High quality products 1 1.svg" alt="" class="sumir" id="img1">
+            <h2 class="sumir" id="text1">Nenhuma Mensagem Encontrada</h2>
+            <p class="sumir" id="text2">Digite um texto que você deseja criptografar ou descriptografar</p>        
+        </section>
+    </main>                                    
     <footer>        
 
     </footer>

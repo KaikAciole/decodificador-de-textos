@@ -8,4 +8,10 @@ na próxima etapa do curso e me tornar um verdadeiro #backend!!!
 
 Espero que gostem:
 
-<img src="./img/Captura de tela 2024-07-08 192820.png" alt="">
+<a href="https://kaikaciole.github.io/decodificador-de-textos-alura-e-oracle/" target="blank"> <img src="./img/Captura de tela 2024-07-08 192820.png" alt=""></a>
+<a href="https://kaikaciole.github.io/decodificador-de-textos-alura-e-oracle/" target="blank">--> visite o site</a>
+
+
+## Tecnologias utilizadas
+
+

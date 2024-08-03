@@ -1,70 +1,79 @@
 var temp = 0;
 let temp2 = 0;
+responsiveVoice.setDefaultVoice("Brazilian Portuguese Female");
+responsiveVoice.setDefaultRate(1.2);
+let podeFalar = false;
+
+responsiveVoice.clickEvent();
 
 function initCodificar(){
-    if(temp == 0){
-        temp += 1;
-        var sumir1 = document.getElementById('img1');
-        var sumir2 = document.getElementById('text1');
-        var sumir3 = document.getElementById('text2');
-        var show = document.getElementById('saida-texto');
-        var buttonDec = document.getElementById('button__descriptografar');
-        var buttonTemp = document.getElementById('button__temp');
-        var buttonCop = document.getElementById('button__copiar');
-
-        sumir1.style.display = "none";
-        sumir2.style.display = "none";
-        sumir3.style.display = "none";
-        show.style.display = "flex";
-        buttonCop.style.display = "block"
-        buttonTemp.style.display = "none"
-        buttonDec.style.display = 'block';
-        
+    if(codificar() == false){
+        falarTexto("Corrija os erros");
         codificar();
-    }else{        
+    }else if(codificar() == 2){        
+        falarTexto("Digite algo para Criptografar ou Descriptografar");
+    }else if(codificar() == 3){        
+        falarTexto("Texto Criptografado");
+    }else{
         codificar();
-        temp = 1;
     }
 }
-
 
 function codificar() {
-    var textoOriginal = document.getElementById('entrada-texto').value.toLowerCase();
-    var textoCodificado = "";
-    var regexEspecial = /[^\u0000-\u007F]+/g; // Expressão regular para caracteres especiais (incluindo acentos)
 
-    for (var i = 0; i < textoOriginal.length; i++) {
-        var letra = textoOriginal[i];
+    document.getElementById('alerta').style.color = '#495057';
+    document.getElementById('red-exclamation').style.display = 'none';
+    document.getElementById('exclamation').style.display = 'flex';
     
-        if (regexEspecial.test(letra)) {
-            alert("Você usou letras maiúsculas ou acentos!\nVamos ignorar esses caracteres.");
-            continue; // Ignora caracteres especiais
-        } else {
-            switch (letra) {
-                case 'e':
-                    textoCodificado += "enter";
-                    break;
-                case 'i':
-                    textoCodificado += "imes";
-                    break;
-                case 'a':
-                    textoCodificado += "ai";
-                    break;
-                case 'o':
-                    textoCodificado += "ober";
-                    break;
-                case 'u':
-                    textoCodificado += "ufat";
-                    break;
-                default:
-                    textoCodificado += letra;
+    var textoOriginal = document.getElementById('entrada-texto').value;
+    var textoCodificado = "";
+    var regexEspecial = /[^\u0000-\u007F]+/g; 
+
+    let contemMaiuscula = /[A-Z]/.test(textoOriginal);
+
+    if(textoOriginal == ""){
+        mostrarImagens();
+        return 2;
+    }else{        
+        for (var i = 0; i < textoOriginal.length; i++) {
+            var letra = textoOriginal[i];
+        
+            if (regexEspecial.test(letra) || contemMaiuscula == true) {
+                document.getElementById('alerta').style.color = 'red';
+                document.getElementById('saida-texto').value = "";
+                document.getElementById('exclamation').style.display = 'none';
+                document.getElementById('red-exclamation').style.display = 'flex';
+                return false;
+            } else {
+                letra.toLowerCase;
+                switch (letra) {
+                    case 'e':
+                        textoCodificado += "enter";
+                        break;
+                    case 'i':
+                        textoCodificado += "imes";
+                        break;
+                    case 'a':
+                        textoCodificado += "ai";
+                        break;
+                    case 'o':
+                        textoCodificado += "ober";
+                        break;
+                    case 'u':
+                        textoCodificado += "ufat";
+                        break;
+                    default:
+                        textoCodificado += letra;
+                }
             }
         }
+        
     }
     
+    sumirImagens();
     document.getElementById('saida-texto').value = textoCodificado;
+    return 3;
 }
-
 
 function decodificar() {
     var textoCodificado = document.getElementById('saida-texto').value.toLowerCase();
@@ -92,8 +101,8 @@ function decodificar() {
     }
 
     document.getElementById('saida-texto').value = textoOriginal;
+    falarTexto('texto descriptografado');
 }
-
 
 function abrirMenu(){
     var x = document.getElementsByClassName('menu-header');
@@ -114,6 +123,52 @@ function abrirMenu(){
 
 function copiarTexto() {
     let textoSaida = document.getElementById('saida-texto').value;
+    falarTexto("copiado para sua área de transferência");
     navigator.clipboard.writeText(textoSaida);
-    
+}
+
+function falarTexto(texto){
+    if(podeFalar){
+        responsiveVoice.speak(texto);
+        return;
+    }
+    return;
+}
+
+function sumirImagens(){
+    document.getElementById('img1').style.display = "none";
+    document.getElementById('text1').style.display = "none";
+    document.getElementById('text2').style.display = "none";
+    document.getElementById('saida-texto').style.display = 'flex';
+    document.getElementById('button__descriptografar').style.display = 'block';
+    document.getElementById('button__temp').style.display = 'none';
+    document.getElementById('button__copiar').style.display = 'block';
+}
+
+function mostrarImagens(){
+    document.getElementById('img1').style.display = "flex";
+    document.getElementById('text1').style.display = "flex";
+    document.getElementById('text2').style.display = "flex";
+    document.getElementById('saida-texto').style.display = 'none';
+    document.getElementById('button__descriptografar').style.display = 'block';
+    document.getElementById('button__temp').style.display = 'none';
+    document.getElementById('button__copiar').style.display = 'none';
+}
+
+
+
+function selecionarSpeak(){
+    document.getElementById('blue').style.display = "none";
+    document.getElementById('white').style.display = "flex";
+    document.getElementById('white2').style.display = "none";
+    document.getElementById('blue2').style.display = "flex";
+    podeFalar = true;
+}
+
+function selecionarWrite(){
+    document.getElementById('blue').style.display = "flex";
+    document.getElementById('white').style.display = "none";
+    document.getElementById('white2').style.display = "flex";
+    document.getElementById('blue2').style.display = "none";
+    podeFalar = false;
 }
