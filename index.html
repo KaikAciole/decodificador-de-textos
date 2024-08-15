@@ -13,38 +13,36 @@
 </head>
 <body>
     <header>
-        <img src="./img/Icone-alura.svg" alt="" onclick="abrirMenu()">
-        <div class="menu-header" id="menu-header">
+        <img src="./img/Icone-alura.svg" alt="Icone_alura_opcoes_de_menu" onclick="abrirMenu()">
+        <div class="menu-header" id="menu-header" alt="menu_opcoes_de_narracao_e_texto">
             <form id="lista-menu">                
-                <label><input type="radio" value="write" name="gostou" id="write" checked onclick="selecionarWrite()"> <img src="./img/icon-text-blue.svg" id="blue" alt=""><img src="./img/icon-text-white.svg" id="white" alt=""></label>
-                <label><input type="radio" value="speak" name="gostou" id="speak" onclick="selecionarSpeak()"> <img src="./img/icon-speak-white.svg" id="white2" alt=""><img src="./img/icon-speak-blue.svg" id="blue2" alt=""></label>               
+                <label><input type="radio" value="write" name="gostou" id="write" checked onclick="selecionarWrite()"> <img src="./img/icon-text-blue.svg" id="blue" alt="icone_da_opcao_de_texto"><img src="./img/icon-text-white.svg" id="white" alt=""></label>
+                <label><input type="radio" value="speak" name="gostou" id="speak" onclick="selecionarSpeak()"> <img src="./img/icon-speak-white.svg" id="white2" alt="icone_da_opcao_de_narracao"><img src="./img/icon-speak-blue.svg" id="blue2" alt=""></label>               
             </form>                
         </div>          
     </header>
     <main>
-        <section id="container"> 
-            <div id="main">  
-                <textarea id="entrada-texto" placeholder="Digite Seu Texto" rows="4" cols="41" required></textarea>     
-                <div id="enviar">  
-                    <div class="alert">
-                        <img src="./img/bi_exclamation-circle-fill.svg" alt="" id="exclamation">    
-                        <img src="./img/red_exclamation.svg" alt="" id="red-exclamation"> &ensp;
-                        <p id="alerta">Apenas letras minúsculas e sem acento.</p>
-                    </div>          
-                    <div class="buttons"> 
-                        <button class="buttons__button" id="button__criptografar" onclick="initCodificar()">Criptografar</button>
-                        <button class="buttons__button" id="button__descriptografar" onclick="decodificar()">Descriptografar</button>
-                        <button class="buttons__button" id="button__temp">Descriptografar</button>
-                    </div>  
-                </div>
-            </div>     
+        <section class="container" id="main">             
+            <textarea id="entrada-texto" placeholder="Digite Seu Texto" rows="4" cols="41" required alt="caixa_de_texto"></textarea>     
+            <div id="enviar">
+                <div class="alert">
+                    <img src="./img/bi_exclamation-circle-fill.svg" alt="preto_simbolo_de_exclamacao_error" id="exclamation">    
+                    <img src="./img/red_exclamation.svg" alt="vermelho_simbolo_de_exclamacao_error" id="red-exclamation"> &ensp;
+                    <p id="alerta">Apenas letras minúsculas e sem acento.</p>
+                </div>          
+                <div class="buttons"> 
+                    <button class="buttons__button" alt="botao_de_criptografar" id="button__criptografar" onclick="initCodificar()">Criptografar</button>
+                    <button class="buttons__button" alt="botao_de_descriptografar" id="button__descriptografar" onclick="decodificar()">Descriptografar</button>
+                    <button class="buttons__button" alt="botao_de_descriptografar_bloqueado" id="button__temp">Descriptografar</button>
+                </div>  
+            </div>              
         </section>
         <section class="resultados">                      
-            <textarea id="saida-texto" cols="20" rows="10" disabled></textarea>
-            <button class="buttons__button" id="button__copiar" onclick="copiarTexto()">Copiar</button>
-            <img src="./img/High quality products 1 1.svg" alt="" class="sumir" id="img1">
-            <h2 class="sumir" id="text1">Nenhuma Mensagem Encontrada</h2>
-            <p class="sumir" id="text2">Digite um texto que você deseja criptografar ou descriptografar</p>        
+            <textarea id="saida-texto" cols="20" rows="10" disabled alt="caixa_de_textos_de_resultados"></textarea>
+            <button class="buttons__button" id="button__copiar" onclick="copiarTexto()" alt="botao_de_copiar">Copiar</button>
+            <img src="./img/High quality products 1 1.svg" alt="imagem_boneco_procurando_algo_para_resultar" class="sumir" id="img1">
+            <h2 class="sumir" id="text1" alt="texto_nenhuma_mensagem_encontrada">Nenhuma Mensagem Encontrada</h2>
+            <p class="sumir" id="text2" alt="texto_digite_algo_para_resultar">Digite um texto que você deseja criptografar ou descriptografar</p>        
         </section>
     </main>                                    
     <footer>        
